@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Application • Nova Admissions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script defer src="./assets/js/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container">
+        <a class="logo" href="./index.html">
+          <span class="logo-mark" aria-hidden="true">✦</span>
+          <span class="logo-text">Nova University</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <ul>
+            <li><a href="./dashboard.html">Dashboard</a></li>
+            <li><a href="./application.html" aria-current="page" class="btn btn-ghost">Application</a></li>
+            <li><a href="./index.html" class="btn">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+      <div class="form-card" role="form" aria-labelledby="app-title">
+        <h1 id="app-title" class="form-title">Application Form</h1>
+        <p class="form-subtitle">Provide accurate information. Fields marked * are required.</p>
+        <form id="application-form" novalidate action="dashboard.html" method="get">
+          <h2>Personal Details</h2>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="fullName">Full name *</label>
+              <input class="input" id="fullName" name="fullName" required />
+              <div class="error">Full name is required.</div>
+            </div>
+            <div class="form-field">
+              <label for="dob">Date of birth *</label>
+              <input class="input" id="dob" name="dob" type="date" required />
+              <div class="error">Please select a valid date.</div>
+            </div>
+            <div class="form-field">
+              <label for="gender">Gender</label>
+              <select id="gender" name="gender">
+                <option value="">Prefer not to say</option>
+                <option>Female</option>
+                <option>Male</option>
+                <option>Non-binary</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="category">Category *</label>
+              <select id="category" name="category" required>
+                <option value="" disabled selected>Select</option>
+                <option>General</option>
+                <option>OBC</option>
+                <option>SC</option>
+                <option>ST</option>
+                <option>EWS</option>
+              </select>
+              <div class="error">Please select a category.</div>
+            </div>
+          </div>
+
+          <h2>Contact</h2>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="email">Email *</label>
+              <input class="input" id="email" name="email" type="email" required />
+              <div class="error">Enter a valid email.</div>
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone *</label>
+              <input class="input" id="phone" name="phone" type="tel" pattern="[0-9]{10}" placeholder="10-digit number" required />
+              <div class="error">Enter a 10-digit phone number.</div>
+            </div>
+            <div class="form-field">
+              <label for="altPhone">Alternate Phone</label>
+              <input class="input" id="altPhone" name="altPhone" type="tel" pattern="[0-9]{10}" placeholder="10-digit number" />
+            </div>
+            <div class="form-field">
+              <label for="aadhar">Aadhaar/ID No.</label>
+              <input class="input" id="aadhar" name="aadhar" pattern="[0-9]{12}" placeholder="12-digit number" />
+              <div class="help">Optional. 12 digits, numbers only.</div>
+            </div>
+          </div>
+
+          <h2>Address</h2>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="addr1">Address Line 1 *</label>
+              <input class="input" id="addr1" name="addr1" required />
+              <div class="error">Address Line 1 is required.</div>
+            </div>
+            <div class="form-field">
+              <label for="addr2">Address Line 2</label>
+              <input class="input" id="addr2" name="addr2" />
+            </div>
+            <div class="form-field">
+              <label for="city">City *</label>
+              <input class="input" id="city" name="city" required />
+              <div class="error">City is required.</div>
+            </div>
+            <div class="form-field">
+              <label for="state">State *</label>
+              <input class="input" id="state" name="state" required />
+              <div class="error">State is required.</div>
+            </div>
+            <div class="form-field">
+              <label for="pincode">Pincode *</label>
+              <input class="input" id="pincode" name="pincode" pattern="[0-9]{6}" placeholder="6-digit" required />
+              <div class="error">Enter a 6-digit pincode.</div>
+            </div>
+            <div class="form-field">
+              <label for="country">Country *</label>
+              <input class="input" id="country" name="country" required />
+              <div class="error">Country is required.</div>
+            </div>
+          </div>
+
+          <h2>Guardian Details</h2>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="guardianName">Guardian Name *</label>
+              <input class="input" id="guardianName" name="guardianName" required />
+              <div class="error">Guardian name is required.</div>
+            </div>
+            <div class="form-field">
+              <label for="relation">Relation *</label>
+              <select id="relation" name="relation" required>
+                <option value="" disabled selected>Select</option>
+                <option>Father</option>
+                <option>Mother</option>
+                <option>Guardian</option>
+              </select>
+              <div class="error">Please select relation.</div>
+            </div>
+            <div class="form-field">
+              <label for="guardianPhone">Guardian Phone *</label>
+              <input class="input" id="guardianPhone" name="guardianPhone" type="tel" pattern="[0-9]{10}" placeholder="10-digit number" required />
+              <div class="error">Enter a 10-digit phone number.</div>
+            </div>
+            <div class="form-field">
+              <label for="guardianEmail">Guardian Email</label>
+              <input class="input" id="guardianEmail" name="guardianEmail" type="email" />
+            </div>
+          </div>
+
+          <h2>Academic</h2>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="sscBoard">SSC Board *</label>
+              <input class="input" id="sscBoard" name="sscBoard" required />
+              <div class="error">SSC Board is required.</div>
+            </div>
+            <div class="form-field">
+              <label for="sscYear">SSC Year *</label>
+              <input class="input" id="sscYear" name="sscYear" type="number" min="2000" max="2099" required />
+              <div class="error">Enter a valid year.</div>
+            </div>
+            <div class="form-field">
+              <label for="sscPercent">SSC Percentage *</label>
+              <input class="input" id="sscPercent" name="sscPercent" type="number" min="35" max="100" step="0.01" required />
+              <div class="error">Enter 35–100.</div>
+            </div>
+            <div class="form-field">
+              <label for="hscBoard">HSC Board *</label>
+              <input class="input" id="hscBoard" name="hscBoard" required />
+              <div class="error">HSC Board is required.</div>
+            </div>
+            <div class="form-field">
+              <label for="hsc">HSC Percentage *</label>
+              <input class="input" id="hsc" name="hsc" type="number" min="35" max="100" step="0.01" placeholder="e.g., 82.50" required />
+              <div class="error">Enter between 35 and 100.</div>
+            </div>
+            <div class="form-field">
+              <label for="maths">Maths Marks *</label>
+              <input class="input" id="maths" name="maths" type="number" min="0" max="100" required />
+              <div class="error">Enter 0–100.</div>
+            </div>
+          </div>
+
+          <h2>Preferences</h2>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="program">Program *</label>
+              <select id="program" name="program" required>
+                <option value="" disabled selected>Select</option>
+                <option>B.Sc. Computer Science</option>
+                <option>B.Sc. Data Science</option>
+                <option>B.Sc. Cyber Security</option>
+              </select>
+              <div class="error">Please select a program.</div>
+            </div>
+            <div class="form-field">
+              <label for="hostel">Hostel Required</label>
+              <select id="hostel" name="hostel">
+                <option>No</option>
+                <option>Yes</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="transport">Transport Required</label>
+              <select id="transport" name="transport">
+                <option>No</option>
+                <option>Yes</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="disability">Disability</label>
+              <select id="disability" name="disability">
+                <option>None</option>
+                <option>Yes</option>
+              </select>
+            </div>
+          </div>
+
+          <h2>Documents</h2>
+          <div class="form-grid full">
+            <div class="form-field">
+              <label>Photo (JPEG/PNG) *</label>
+              <div class="dz" data-dropzone>
+                <div class="dz-instructions">Drop photo here or click to select (max 5).</div>
+                <input type="file" id="photo" name="photo" accept="image/*" required style="display:none" />
+                <button type="button" class="btn btn-ghost" onclick="this.previousElementSibling.click()">Choose Photo</button>
+                <div class="dz-list" data-previews></div>
+              </div>
+              <div class="error">Photo is required.</div>
+            </div>
+            <div class="form-field">
+              <label>Signature (JPEG/PNG) *</label>
+              <div class="dz" data-dropzone>
+                <div class="dz-instructions">Drop signature here or click to select.</div>
+                <input type="file" id="signature" name="signature" accept="image/*" required style="display:none" />
+                <button type="button" class="btn btn-ghost" onclick="this.previousElementSibling.click()">Choose Signature</button>
+                <div class="dz-list" data-previews></div>
+              </div>
+              <div class="error">Signature is required.</div>
+            </div>
+            <div class="form-field">
+              <label>ID Proof (PDF/Image) *</label>
+              <div class="dz" data-dropzone>
+                <div class="dz-instructions">Drop ID proof here or click to select.</div>
+                <input type="file" id="idproof" name="idproof" accept="image/*,.pdf" required style="display:none" />
+                <button type="button" class="btn btn-ghost" onclick="this.previousElementSibling.click()">Choose ID</button>
+                <div class="dz-list" data-previews></div>
+              </div>
+              <div class="error">ID proof is required.</div>
+            </div>
+            <div class="form-field">
+              <label>SSC Marksheet (PDF/Image) *</label>
+              <div class="dz" data-dropzone>
+                <div class="dz-instructions">Drop SSC marksheet here or click to select.</div>
+                <input type="file" id="sscMarksheet" name="sscMarksheet" accept="image/*,.pdf" required style="display:none" />
+                <button type="button" class="btn btn-ghost" onclick="this.previousElementSibling.click()">Choose SSC</button>
+                <div class="dz-list" data-previews></div>
+              </div>
+              <div class="error">SSC marksheet is required.</div>
+            </div>
+            <div class="form-field">
+              <label>HSC Marksheet (PDF/Image) *</label>
+              <div class="dz" data-dropzone>
+                <div class="dz-instructions">Drop HSC marksheet here or click to select.</div>
+                <input type="file" id="hscMarksheet" name="hscMarksheet" accept="image/*,.pdf" required style="display:none" />
+                <button type="button" class="btn btn-ghost" onclick="this.previousElementSibling.click()">Choose HSC</button>
+                <div class="dz-list" data-previews></div>
+              </div>
+              <div class="error">HSC marksheet is required.</div>
+            </div>
+          </div>
+
+          <h2>Declaration</h2>
+          <div class="form-grid full">
+            <div class="form-field">
+              <label for="declaration" class="muted">I confirm that the information provided is true and correct.</label>
+              <input class="input" id="declaration" name="declaration" type="checkbox" required />
+              <div class="error">You must accept the declaration.</div>
+            </div>
+          </div>
+
+          <div class="space"></div>
+          <button class="btn btn-lg" type="submit">Save & Continue</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

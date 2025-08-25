@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register • Nova Admissions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+      <script defer src="./assets/js/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container">
+        <a class="logo" href="./index.html">
+          <span class="logo-mark" aria-hidden="true">✦</span>
+          <span class="logo-text">Nova University</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./login.html" class="btn btn-ghost">Login</a></li>
+            <li><a href="./register.html" aria-current="page" class="btn">Register</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+      <div class="form-card" role="form" aria-labelledby="register-title">
+        <h1 id="register-title" class="form-title">Create account</h1>
+        <p class="form-subtitle">Start your application in minutes</p>
+        <form novalidate action="dashboard.html" method="get">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="firstName">First name</label>
+              <input class="input" id="firstName" name="firstName" type="text" required />
+              <div class="error" aria-live="polite">First name is required.</div>
+            </div>
+            <div class="form-field">
+              <label for="lastName">Last name</label>
+              <input class="input" id="lastName" name="lastName" type="text" required />
+              <div class="error" aria-live="polite">Last name is required.</div>
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input class="input" id="email" name="email" type="email" required />
+              <div class="error" aria-live="polite">Enter a valid email.</div>
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone</label>
+              <input class="input" id="phone" name="phone" type="tel" pattern="[0-9]{10}" placeholder="10-digit number" required />
+              <div class="help">Digits only, no spaces or dashes.</div>
+              <div class="error" aria-live="polite">Enter a 10-digit phone number.</div>
+            </div>
+            <div class="form-field">
+              <label for="password">Password</label>
+              <input class="input" id="password" name="password" type="password" minlength="6" required />
+              <div class="error" aria-live="polite">Minimum 6 characters.</div>
+            </div>
+            <div class="form-field">
+              <label for="confirm">Confirm password</label>
+              <input class="input" id="confirm" name="confirm" type="password" minlength="6" required />
+              <div class="error" aria-live="polite">Passwords must match.</div>
+            </div>
+          </div>
+          <div class="space"></div>
+          <div class="form-field">
+            <label for="program">Program</label>
+            <select id="program" name="program" required>
+              <option value="" selected disabled>Select a program</option>
+              <option>B.Sc. Computer Science</option>
+              <option>B.Sc. Data Science</option>
+              <option>B.Sc. Cyber Security</option>
+            </select>
+            <div class="error" aria-live="polite">Please select a program.</div>
+          </div>
+          <div class="space"></div>
+          <button class="btn btn-lg" type="submit">Create account</button>
+          <p class="muted">Already have an account? <a href="login.html">Sign in</a>.</p>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
