@@ -161,18 +161,24 @@
     var nav = qs('#primary-nav');
     if(!toggle || !nav) return;
     function setOpen(isOpen){
-      toggle.setAttribute('aria-expanded', String(!!isOpen));
-      nav.classList.toggle('open', !!isOpen);
+      var open = !!isOpen;
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      nav.classList.toggle('open', open);
+      toggle.classList.toggle('open', open);
     }
     toggle.addEventListener('click', function(){
       var open = toggle.getAttribute('aria-expanded') === 'true';
       setOpen(!open);
     });
+    toggle.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle.click(); } });
     document.addEventListener('click', function(e){
       if(!nav.classList.contains('open')) return;
       if(e.target.closest('#primary-nav') || e.target.closest('.nav-toggle')) return;
       setOpen(false);
     });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ setOpen(false); } });
+    window.addEventListener('resize', function(){ if(window.innerWidth > 900){ setOpen(false); } });
     qsa('#primary-nav a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
   }
 
