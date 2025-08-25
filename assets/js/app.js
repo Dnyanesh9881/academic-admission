@@ -156,6 +156,26 @@
     if(docsEl) docsEl.textContent = ((state.documents||[]).length) + ' / 5';
   }
 
+  function initMobileNav(){
+    var toggle = qs('.nav-toggle');
+    var nav = qs('#primary-nav');
+    if(!toggle || !nav) return;
+    function setOpen(isOpen){
+      toggle.setAttribute('aria-expanded', String(!!isOpen));
+      nav.classList.toggle('open', !!isOpen);
+    }
+    toggle.addEventListener('click', function(){
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      setOpen(!open);
+    });
+    document.addEventListener('click', function(e){
+      if(!nav.classList.contains('open')) return;
+      if(e.target.closest('#primary-nav') || e.target.closest('.nav-toggle')) return;
+      setOpen(false);
+    });
+    qsa('#primary-nav a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
     attachValidation();
     attachPasswordMatch();
@@ -163,5 +183,6 @@
     handleRegister();
     handleApplication();
     renderDashboard();
+    initMobileNav();
   });
 })();
